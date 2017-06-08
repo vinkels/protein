@@ -18,7 +18,7 @@ def anneal(protein_object, name, temperature):
 	high_protein = copy.deepcopy(cur_protein)
 	j = 0
 	counter = 0 
-	while j < 8:
+	while j < 20:
 		start_an = timer() - start
 		result_array.append(['Start Anneal', start_an, temperature])
 		while temperature > 0.01:
