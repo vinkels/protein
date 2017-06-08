@@ -2,14 +2,15 @@ import random, copy, math
 import folder_iter, main_SA, functions
 from timeit import default_timer as timer
 
-def anneal(protein_object, rep_num, name, temperature):
+def anneal(protein_object, name, temperature):
 	result_array = []
+	cur_score = 0
 	start = timer()
 	result_array.append(['start', start])
 	# make starting point
-	cur_protein_array = folder_iter.find_best(protein_object, rep_num, 0)
-	cur_score = cur_protein_array[0]
-	cur_protein = copy.deepcopy(cur_protein_array[1])
+	# cur_protein_array = folder_iter.find_best(protein_object, rep_num, 0)
+	# cur_score = cur_protein_array[0]
+	cur_protein = copy.deepcopy(protein_object)
 	cur_coor = folder_iter.get_coor_array(cur_protein)
 	start_temp = temperature
 	#set high_score
@@ -19,7 +20,7 @@ def anneal(protein_object, rep_num, name, temperature):
 	counter = 0 
 	while j < 8:
 		start_an = timer() - start
-		result_array.append(['Start Anneal', start_an])
+		result_array.append(['Start Anneal', start_an, temperature])
 		while temperature > 0.01:
 
 			# make next protein object
@@ -47,7 +48,7 @@ def anneal(protein_object, rep_num, name, temperature):
 				# print "NEW HIGHSCORE"
 				high_score = copy.copy(cur_score)
 				high_protein = copy.deepcopy(cur_protein)
-				result_array.append(['Score Iteration', high_score, counter])
+				result_array.append(['Score Iteration', high_score, counter, temperature])
 			
 
 			counter += 1
