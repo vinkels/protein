@@ -51,7 +51,7 @@ def Visualizer3D(protein_object, protein, protein_score, fold_num):
 	ax = fig.gca(projection='3d')
 	ax.plot(x, y, z, 'k', zorder=1, lw=3)
 	ax.scatter(x, y, z, s=size, zorder=2, c=col)
-	plt.title('Best from constructive algorhythm\n Score = %s' %(protein_score))
+	plt.title('protein: %s \n Score = %s' %(protein, protein_score))
 	plt.axis('off')
 	plt.savefig('results/fold_%s.png' %fold_num)
 	plt.figure()

@@ -42,7 +42,7 @@ def Visualizer2D(protein_object, protein, protein_score, name):
 
 	ax = plt.plot(x, y, 'k', zorder=1, lw=3)
 	bx = plt.scatter(x, y, s=size, zorder=2, c=col)
-	plt.title('Best from constructive algorhythm\n Score = %s' %(protein_score))
+	plt.title('protein: %s \n Score = %s' %(protein, protein_score))
 	plt.axis('off')
 	plt.savefig('results/fold_%s.png' %name)
 	plt.figure()

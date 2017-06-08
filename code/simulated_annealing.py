@@ -56,7 +56,7 @@ def anneal(protein_object, name, temperature):
 		cur_protein = copy.deepcopy(high_protein)
 		cur_score = high_score
 		cur_coor = folder_iter.get_coor_array(high_protein)
-		start_temp = start_temp * 1.5
+		start_temp = start_temp * 1.1
 		temperature = start_temp
 		end = timer() - start
 		result_array.append(['Result SA %s' %name, start_an, end, counter, high_score])
