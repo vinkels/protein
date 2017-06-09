@@ -6,7 +6,7 @@ import copy
 import main_new
 
 
-def build(protein, i, theoscore):
+def build(protein, theoscore):
 	len_proteinsh = len(protein) -2
 	direction = [0] * len_proteinsh
 	best_score = 0
@@ -57,7 +57,7 @@ def build(protein, i, theoscore):
 			best_direction = copy.copy(result[1])
 			best_grid = copy.copy(result[2])
 
-	make_vis(protein, best_direction, len_proteinsh, best_score, i)
+	make_vis(protein, best_direction, len_proteinsh, best_score)
 	return [best_score, best_direction, best_grid, score_saver]
 
 def place(protein, direction, length):
@@ -94,7 +94,7 @@ def place(protein, direction, length):
 	return [score, direction, grid]
 
 
-def make_vis(protein, direction, length, score, i):
+def make_vis(protein, direction, length, score):
 	for num in range(length):
 		rotate = direction[num]
 		# rotate 0 = rechts
@@ -123,4 +123,4 @@ def make_vis(protein, direction, length, score, i):
 		protein[num + 2].coordinates[0] = x
 		protein[num + 2].coordinates[1] = y
 	
-	functions.Visualizer2D(protein, main_new.protein[i], score, i + 5000)
+	functions.Visualizer2D(protein, main_new.protein[i], score, 5000)
