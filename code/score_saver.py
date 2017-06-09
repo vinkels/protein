@@ -6,7 +6,7 @@ import copy
 import main_new
 
 
-def build(protein, theoscore):
+def build(protein, theoscore, i):
 	len_proteinsh = len(protein) -2
 	direction = [0] * len_proteinsh
 	best_score = 0
@@ -25,7 +25,7 @@ def build(protein, theoscore):
 		leftover = number
   		index = 0
   		prev_number = 10
-  		print number
+  		# print number
   		while(leftover > 0):
   			getal = leftover%4
   			direction[len_proteinsh - index - 1] = getal
@@ -50,14 +50,14 @@ def build(protein, theoscore):
 		result = place(protein, direction, len_proteinsh)
 		
 		if result[0]<=0:
-			score_saver[result[0]] += 1
+			score_saver[abs(result[0])] += 1
 
 		if result[0] < best_score:
 			best_score = result[0]
 			best_direction = copy.copy(result[1])
 			best_grid = copy.copy(result[2])
 
-	make_vis(protein, best_direction, len_proteinsh, best_score)
+	make_vis(protein, best_direction, len_proteinsh, best_score, i)
 	return [best_score, best_direction, best_grid, score_saver]
 
 def place(protein, direction, length):
@@ -94,7 +94,7 @@ def place(protein, direction, length):
 	return [score, direction, grid]
 
 
-def make_vis(protein, direction, length, score):
+def make_vis(protein, direction, length, score, i):
 	for num in range(length):
 		rotate = direction[num]
 		# rotate 0 = rechts
@@ -123,4 +123,4 @@ def make_vis(protein, direction, length, score):
 		protein[num + 2].coordinates[0] = x
 		protein[num + 2].coordinates[1] = y
 	
-	functions.Visualizer2D(protein, main_new.protein[i], score, 5000)
+	functions.Visualizer2D(protein, main_new.protein_array[i], score, 7000+i)

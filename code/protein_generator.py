@@ -4,7 +4,7 @@ import math
 def protein_generator(length, H_number, amount):
 	protein_array = []
 	numberofoptions = (math.factorial(length) / math.factorial(length - H_number))/2
-	print numberofoptions
+	# print numberofoptions
 	if numberofoptions < amount:
 		return "INVALID"
 	while amount > 0:
@@ -28,5 +28,5 @@ def protein_generator(length, H_number, amount):
 	return protein_array
 
 
-print protein_generator(8, 2, 100)
+# print protein_generator(8, 2, 100)
 

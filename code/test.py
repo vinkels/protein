@@ -129,10 +129,10 @@ def theo_score(protein):
 		if protein[i] == 'H':
 			if i == 0:
 				even_count += 3
-				print 'even 3'
+				# print 'even 3'
 			elif len(protein) % 2 == 0 and i == len(protein) - 1:
 				odd_count += 3
-				print 'even 3'
+				# print 'even 3'
 			elif i == len(protein) - 1:
 				even_count += 3
 			elif i % 2 == 0:
