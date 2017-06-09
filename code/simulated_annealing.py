@@ -83,3 +83,6 @@ def calc_chance(next_score, cur_score, temperature):
 	else:
 		acceptation_chance = random.random() * 20/(1+math.exp(-100*score_ratio))
 	return acceptation_chance
+
+def fold_direction():
+	random.randint(0, 4)
