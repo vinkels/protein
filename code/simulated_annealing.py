@@ -18,13 +18,13 @@ def anneal(protein_object, name, temperature):
 	high_protein = copy.deepcopy(cur_protein)
 	j = 0
 	counter = 0 
-	while j < 20:
+	while j < 1:
 		start_an = timer() - start
 		result_array.append(['Start Anneal', start_an, temperature])
 		while temperature > 0.01:
 
 			# make next protein object
-			next_coor = folder_iter.folder_protein(cur_coor, random.randint(2,len(protein_object) - 1))
+			next_coor = folder_iter.folder_protein(cur_coor, random.randint(2,len(protein_object) - 1), random.randint(1,4))
 			next_protein = folder_iter.update_objects(protein_object, next_coor)
 			next_grid = functions.protein_visual(next_protein)
 			next_score = functions.score(next_protein, next_grid)

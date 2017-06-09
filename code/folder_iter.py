@@ -40,7 +40,7 @@ def get_coor_array(protein_object):
 
 
 # initiates folding by taking protein_object as argiment
-def folder_protein(coor_array, amino_num):
+def folder_protein(coor_array, amino_num, turn):
 
 	# length of protein_object/coor_array
 	len_protein = len(coor_array)
@@ -58,11 +58,12 @@ def folder_protein(coor_array, amino_num):
 		repeat = True
 		i = 0
 
+		for i in range(turn):
 		# folds complete string starting from amino num
-		while i < len(coor_array) - amino_num:
+			while i < len(coor_array) - amino_num:
 
-			new_array[amino_num + i] = fold_amino(temp_array, new_array[amino_num + (i - 1)], amino_num + i)
-			i += 1
+				new_array[amino_num + i] = fold_amino(temp_array, new_array[amino_num + (i - 1)], amino_num + i)
+				i += 1
 
 		# checks if coordinates are shared by multiple amino acids
 		for j in range(len(coor_array) - amino_num):
@@ -86,6 +87,7 @@ def folder_protein(coor_array, amino_num):
 				else:	
 					amino_num = copy.copy(amino_num + j)
 					repeat = False
+					turn = 1
 					break
 			
 	return new_array
