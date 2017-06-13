@@ -28,5 +28,29 @@ def protein_generator(length, H_number, amount):
 	return protein_array
 
 
-# print protein_generator(8, 2, 100)
+# def odd_even(protein):
+# 	odd_count = 0
+# 	even_count = 0
+
+# 	for i in range(len(protein)):
+# 		if protein[i] == 'H':
+# 			if i == 0:
+# 			elif i % 2 == 0:
+# 				even_count += 1
+# 			else:
+# 				odd_count += 1
+
+# 	return[even_count, odd_count]
+
+def highscorefreq(array):
+	high = 0
+	score = 0
+	if array[len(array) -1] != 0:
+		return [array[len(array)-1], -len(array)]
+	for i in range(len(array)):
+		if (array[i] == 0 and array[i-1] != 0):
+			high = array[i-1]
+			score = -(i-1)
+	return [high,score]
+
 
