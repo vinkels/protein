@@ -1,4 +1,4 @@
-import numpy, string
+import numpy, string, csv
 from classes import amino_acid
 import matplotlib.pyplot as plt
 
@@ -110,3 +110,13 @@ def score(protein_object, grid):
 	score = score/2
 	return score		
 
+def extract_protein():
+
+	# f = open(csv_name, 'r')
+	f = open('results/constructive_random1.csv','r')
+	data = csv.reader(f, delimiter=',')
+	protein_array = []
+	for row in data:
+		protein_array.append(row[3])
+
+	return protein_array

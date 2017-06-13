@@ -6,7 +6,7 @@ from timeit import default_timer as timer
 
 #109.9s HHPHHHPHPHHHPH
 # PPPHHPPHHPPPPPHHHHHHHPPHHPPPPHHPPHPP
-protein_array = copy.copy(protein_generator.protein_generator(7, 6, 2))
+protein_array = copy.copy(protein_generator.protein_generator(16, 8, 100))
 
 def main():
 	print protein_array
@@ -14,7 +14,7 @@ def main():
 	for i in range(len(protein_array)):
 		start = timer()
 		placed_protein = functions.protein_place(protein_array[i])
-		print placed_protein
+		# print placed_protein
 		theo = test.theo_score(protein_array[i])
 		result = score_saver.build(placed_protein, theo, protein_array[i])
 		end = timer() - start
@@ -23,7 +23,7 @@ def main():
 
 		print 'construct succes'
 	
-	folder_iter.write_csv(result_array, 'constructive_random1')
+	folder_iter.write_csv(result_array, 'constructive_random2')
 
 	
 	# print result[3]
