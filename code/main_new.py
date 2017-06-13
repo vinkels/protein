@@ -15,7 +15,7 @@ def main():
 		start = timer()
 		placed_protein = functions.protein_place(protein_array[i])
 		# print placed_protein
-		theo = test.theo_score(protein_array[i])
+		theo = test.theo_score(protein_array[i])[0]
 		result = score_saver.build(placed_protein, theo, protein_array[i])
 		end = timer() - start
 
