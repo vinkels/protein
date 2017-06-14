@@ -113,7 +113,7 @@ def score(protein_object, grid):
 def extract_protein():
 
 	# f = open(csv_name, 'r')
-	f = open('results/constructive_random1.csv','r')
+	f = open('results/constructive_random3.csv','r')
 	data = csv.reader(f, delimiter=',')
 	protein_array = []
 	for row in data:

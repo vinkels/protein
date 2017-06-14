@@ -6,7 +6,7 @@ from timeit import default_timer as timer
 
 #109.9s HHPHHHPHPHHHPH
 # PPPHHPPHHPPPPPHHHHHHHPPHHPPPPHHPPHPP
-protein_array = copy.copy(protein_generator.protein_generator(16, 8, 100))
+protein_array = copy.copy(protein_generator.protein_generator(14, 9, 100))
 
 def main():
 	print protein_array
@@ -23,7 +23,7 @@ def main():
 
 		print 'construct succes'
 	
-	folder_iter.write_csv(result_array, 'constructive_random2')
+	folder_iter.write_csv(result_array, 'constructive_random3')
 
 	
 	# print result[3]
