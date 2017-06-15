@@ -3,7 +3,9 @@ import csv, string, sys, copy
 
 def main():
 
-	protein_array = extract_protein('constructive_random2')
+
+	protein_analyze()
+	# protein_array = extract_protein('constructive_random1')
 	h_count = 0
 	protein_len = len(protein_array[0][0])
 	for amino in protein_array[0][0]:
@@ -90,7 +92,7 @@ def extract_protein(csv_name):
 		high_score = 0
 		scores = row[2].replace('"', '').replace('[', '').replace(']', '').split(",")
 
-		theo_score = len(scores) - 1
+		theo_score = len(row) - 2
 
 		for i in range(theo_score + 1):
 			if scores[i] != ' 0':
