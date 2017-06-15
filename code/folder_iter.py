@@ -298,3 +298,5 @@ def get_start(protein_object, rep_num, start_num, function):
 		start_array.append(temp_array)
 	return start_array
 
+if __name__ == '__main__':
+	main(csv)

@@ -145,5 +145,5 @@ def theo_score(protein):
 	if odd_count < even_count:
 		return len(protein), odd_count, odds_ratio
 	else:
-		return len(protein), even_count, odds_even_ratio
+		return len(protein), even_count, odds_ratio
 
