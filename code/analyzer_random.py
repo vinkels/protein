@@ -3,9 +3,8 @@ import csv, string, sys, copy
 
 def main():
 
-
-	protein_analyze()
-	# protein_array = extract_protein('constructive_random1')
+	protein_array = extract_protein('randomsampling_overview20_5')
+	print protein_array
 	h_count = 0
 	protein_len = len(protein_array[0][0])
 	for amino in protein_array[0][0]:
@@ -13,11 +12,11 @@ def main():
 			h_count += 1
 
 	analyze_array = []
-	analyze_array.append(['protein', 'theo_score', 'high_score', 'min_bond', 'min_count', 'odd_even_bond', 'odd_even_count', 'even1', 'even2', 'even3', 'even4', 'odd1', 'odd2', 'odd3', 'odd4'])
+	analyze_array.append(['protein', 'rep_num','theo_score', 'high_score', 'min_bond', 'min_count', 'odd_even_bond', 'odd_even_count', 'even1', 'even2', 'even3', 'even4', 'odd1', 'odd2', 'odd3', 'odd4'])
 	for protein in protein_array:
 
 		analyze_array.append(protein + protein_analyze(protein[0]))
-	write_csv(analyze_array, 'analyze_%s_%s'%(protein_len, h_count))
+	write_csv(analyze_array, 'analyze_%s_%s_%s'%(protein_len, h_count, protein_array[0][1]))
 
 
 
@@ -73,6 +72,12 @@ def protein_analyze(protein):
 				else: 
 					divide_array[7] += 1
 
+	if even_bond == 0 or even_count == 0:
+		return [even_bond, even_count, 0, 0] + divide_array
+
+	elif odd_bond == 0 or odd_count == 0:
+		return [odd_bond, odd_count, 0, 0] + divide_array
+
 	odd_even_bond = float(odd_bond)/float(even_bond)
 	odd_even_count = float(odd_count)/float(even_count)
 
@@ -90,16 +95,15 @@ def extract_protein(csv_name):
 	for row in data:
 		theo_score = 0
 		high_score = 0
-		scores = row[2].replace('"', '').replace('[', '').replace(']', '').split(",")
 
 		theo_score = len(row) - 2
 
-		for i in range(theo_score + 1):
-			if scores[i] != ' 0':
+		for i in range(2,len(row)):
+			if row[i] != 0:
 
-				high_score = copy.copy(i)
+				high_score = copy.copy(i - 2)
 
-		protein_array.append([row[3], theo_score, high_score])
+		protein_array.append([row[0], row[1], theo_score, high_score])
 
 	return protein_array
 
