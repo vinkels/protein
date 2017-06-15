@@ -298,43 +298,6 @@ def get_start(protein_object, rep_num, start_num, function):
 		start_array.append(temp_array)
 	return start_array
 
-# def random_sampling(protein, configurations, fold_factor):
-# 	protein_coor = get_coor_array(protein)
-# 	len_protein = len(protein_coor)
-# 	print len_protein
-# 	protein_array = []
-# 	score_array = []
-# 	j = 0 
-# 	while j < configurations:
-# 		folds = random.randint(0, fold_factor*len_protein)
-# 		print folds
-# 		start_coor = copy.deepcopy(protein_coor)
-# 		# print start_coor
-# 		for i in range(folds):
-# 			new_coor = folder_protein(start_coor, random.randint(2,len_protein), random.randint(1,3))
-# 			# print 'made fold'
-# 			start_coor = copy.deepcopy(new_coor)
-# 		new_protein = update_objects(protein, new_coor)
-# 		print 'made protein'
-		
-# 		protein_info = copy.deepcopy(new_protein)
-# 		print new_protein
-# 		if protein_info not in protein_array:
-# 			print 'unique'
-# 			protein_array.append(protein_info)
-# 			grid = functions.protein_visual(new_protein)
-# 			score = functions.score(new_protein, grid)
-# 			score_array.append(score)
-# 			j += 1
-# 		else:
-# 			print 'not unique'
-# 			print protein_info
-# 			print protein_array
-
-# 	return [protein_array, score_array]
-
-
-
 def random_sampling(protein, configurations, fold_factor):
 	protein_coor = get_coor_array(protein)
 	len_protein = len(protein_coor)
@@ -366,4 +329,4 @@ def random_sampling(protein, configurations, fold_factor):
 			print protein_array
 
 	return protein_array
-	
+

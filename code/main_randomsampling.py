@@ -16,8 +16,6 @@ def main():
 		theo = test.theo_score(protein)
 		score_saver = [protein, configurations] + [0]*(theo[0]+1)
 		print score_saver
-		# score_saver.append(configurations)
-		# score_saver.append([0]*(theo[0]+1))
 		for result in start_pos:
 			score_saver[abs(result[0])+2] += 1
 		high_score = protein_generator.highscorefreq(score_saver)
