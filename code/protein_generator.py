@@ -52,5 +52,3 @@ def highscorefreq(array):
 			high = array[i-1]
 			score = -(i-1)
 	return [high,score]
-
-highscorefreq([0, 0, 1, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0])
