@@ -4,6 +4,7 @@ import string
 import functions
 import copy
 import main_new
+import random
 
 
 def build(protein):
@@ -87,7 +88,7 @@ def place(protein, direction, length):
 	
 	grid =  functions.protein_visual(protein)
 	score = functions.score(protein, grid)
-	return [score, direction, grid]
+	return [score, direction, grid, protein]
 
 
 def make_vis(protein, direction, length, score):
@@ -147,3 +148,25 @@ def theo_score(protein):
 	else:
 		return even_count, odds_ratio
 
+def random_protein(protein):
+	print 'I am here'
+	len_proteinsh = len(protein) -2
+	direction = [0] * len_proteinsh
+	valid = False
+	while valid == False:
+		stop = False	
+		i = 0
+		while i < len_proteinsh:
+			if i == 0:
+				direction[i] == random.randint(0,1)
+			else:
+				direction[i] = random.randint(0,3)
+				if abs(direction[i] - direction[i-1]) == 2:
+					continue
+			i += 1
+		print direction
+		result = place(protein, direction, len_proteinsh)
+		print result
+		if result[0] != 1:
+			valid = True
+	return result

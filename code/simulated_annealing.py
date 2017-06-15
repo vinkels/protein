@@ -67,7 +67,7 @@ def anneal(protein_object, name, temperature):
 
 def calc_chance(next_score, cur_score, temperature):
 	if cur_score <0:
-			score_ratio = next_score/float(cur_score)
+		score_ratio = next_score/float(cur_score)
 		
 	else: 
 		if next_score == cur_score:
