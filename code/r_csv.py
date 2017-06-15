@@ -1,9 +1,9 @@
 import csv
 
 def main():
-	f = open('results/constructive_random1.csv','r')
+	f = open('results/constructive_random3.csv','r')
 	data = csv.reader(f, delimiter=',')
-	output = open('results/constructive_R2.csv', 'w')
+	output = open('results/constructive_R3.csv', 'w')
 	writer = csv.writer(output, delimiter =',')
 
 	for row in data:

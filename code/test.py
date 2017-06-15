@@ -144,9 +144,9 @@ def theo_score(protein):
 	odds_ratio = even_count/odd_count
 
 	if odd_count < even_count:
-		return odd_count, odds_ratio
+		return len(protein), odd_count, odds_ratio
 	else:
-		return even_count, odds_ratio
+		return len(protein), even_count, odds_ratio
 
 def random_protein(protein):
 	print 'I am here'
