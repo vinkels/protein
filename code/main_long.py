@@ -7,14 +7,14 @@ import classes, functions, cProfile, copy, folder_iter, simulated_annealing, pro
 def main():
 
 	length = 50
-	h_concentration = 25
+	h_concentration = 30
 	protein_array = copy.copy(protein_generator.protein_generator(length, h_concentration, 100))
 	result_array = []
 	for protein in protein_array:
 		protein_object = functions.protein_place(protein)
 		print protein_object
-		configurations = 100
-		start_pos = folder_iter.random_sampling(protein_object, 3, configurations)
+		configurations = 500
+		start_pos = folder_iter.random_sampling(protein_object, configurations, 5)
 		# folder_iter.write_csv(start_pos, 'random_sampling%s' %protein)
 		theo = test.theo_score(protein)
 		score_saver = [protein, configurations] + [0]*(theo[0]+1)
