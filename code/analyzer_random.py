@@ -3,7 +3,7 @@ import csv, string, sys, copy
 
 def main():
 
-	protein_array = extract_protein('randomsampling_overview20_5')
+	protein_array = extract_protein('randomsampling_overview50_25')
 	print protein_array
 	h_count = 0
 	protein_len = len(protein_array[0][0])
@@ -12,11 +12,11 @@ def main():
 			h_count += 1
 
 	analyze_array = []
-	analyze_array.append(['protein', 'rep_num','theo_score', 'high_score', 'min_bond', 'min_count', 'odd_even_bond', 'odd_even_count', 'even1', 'even2', 'even3', 'even4', 'odd1', 'odd2', 'odd3', 'odd4'])
+	analyze_array.append(['protein', 'rep_num','theo_score', 'high_score','percent_high', 'min_bond', 'min_count', 'odd_even_bond', 'odd_even_count', 'even1', 'even2', 'even3', 'even4', 'odd1', 'odd2', 'odd3', 'odd4'])
 	for protein in protein_array:
 
 		analyze_array.append(protein + protein_analyze(protein[0]))
-	write_csv(analyze_array, 'analyze_%s_%s_%s'%(protein_len, h_count, protein_array[0][1]))
+	write_csv(analyze_array, 'analyze2_%s_%s_%s'%(protein_len, h_count, protein_array[0][1]))
 
 
 
@@ -93,22 +93,24 @@ def extract_protein(csv_name):
 	data = csv.reader(f, delimiter=',')
 	protein_array = []
 	for row in data:
-		theo_score = 0
 		high_score = 0
-
-		theo_score = len(row) - 2
+		high_count = 0
+		tot_scores = 0
 
 		for i in range(2,len(row)):
-			if row[i] != 0:
-
+			if int(row[i]) != 0:
+				tot_scores += int(row[i])
 				high_score = copy.copy(i - 2)
+				high_count = copy.copy(int(row[i]))
 
-		protein_array.append([row[0], row[1], theo_score, high_score])
+		percent_high = (float(high_count) / float(tot_scores)) * 100
+
+		protein_array.append([row[0], row[1], high_score, percent_high])
 
 	return protein_array
 
 def write_csv(in_array, csv_name):
-	f = open('results/%s.csv' % csv_name, 'w')
+	f = open('results/final/%s.csv' % csv_name, 'w')
 	csv_file = csv.writer(f, delimiter = ',')
 	for row in in_array:
 		csv_file.writerow(row)

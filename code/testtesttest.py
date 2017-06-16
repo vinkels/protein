@@ -9,3 +9,7 @@ for i in range(len(row)):
 		high_score = copy.copy(i)
 
 print high_score
+
+string_num = ' 012983'
+
+print int(string_num)
