@@ -1,9 +1,9 @@
 import csv
 
-f = open('results/final/SA_percentageanalyze_14_7.csv','r')
+f = open('results/SA_protein_overview/SA_percentageanalyze_16_8.csv','r')
 data = csv.reader(f, delimiter=',')
 
-out = open('results/final/SA_percentageanalyze_14_7_without.csv','w')
+out = open('results/final/SA_percentageanalyze_16_8.csv','w')
 csv_file = csv.writer(out, delimiter = ',')
 
 for row in data:
