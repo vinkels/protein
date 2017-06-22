@@ -1,22 +1,21 @@
 import csv
 
 
-
-
 def main():
-	extract_proteins('analyze2_50_20_500')
+	extract_proteins('analyze2_50_25_500')
 
 def extract_proteins(csv_name):
 	protein_array = []
 	ratio_array = []
 	f = open('results/final/%s.csv' % (csv_name),'r')
-	data = csv.reader(f, delimiter=',')
+	data = csv.reader(f, delimiter=';')
 
 	for row in data:
 		if row[0] != 'protein':
 			protein_array.append(row[0])
 	result_array = []
 	percentage_array = [['protein','percentage','iterations']]
+	print protein_array
 	for i in range(len(protein_array)):
 		result = extract_results(protein_array[i])
 		percentage = extract_percentage(result)
@@ -54,7 +53,8 @@ def extract_percentage(result):
 def extract_results(csv_name):
 	result_array = []
 	for i in range(20):
-		f = open('results/large/result_anneal%s%s.csv' % (csv_name, i),'r')
+		print csv_name
+		f = open('results/SA_50_25/result_anneal%s%s.csv' % (csv_name, i),'r')
 		data = csv.reader(f, delimiter=',')
 		
 		high_score = 0
