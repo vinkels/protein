@@ -109,6 +109,7 @@ def extract_protein(csv_name):
 
 	return protein_array
 
+
 def write_csv(in_array, csv_name):
 	f = open('results/final/%s.csv' % csv_name, 'w')
 	csv_file = csv.writer(f, delimiter = ',')
