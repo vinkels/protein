@@ -19,7 +19,7 @@ def anneal(protein_object, name, temperature):
 	j = 0
 	# i = 0
 	counter = 0 
-	while j < 20:
+	while j < 15:
 		start_an = timer() - start
 		# functions.Visualizer2D(cur_protein, 'HHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH', cur_score, "test%s+%s" %(i,counter))
 		# i+=1
