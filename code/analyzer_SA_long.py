@@ -2,7 +2,7 @@ import csv
 
 
 def main():
-	extract_proteins('analyze2_50_25_500')
+	extract_proteins('analyze2_50_20_500')
 
 def extract_proteins(csv_name):
 	protein_array = []
@@ -72,17 +72,18 @@ def extract_more_results(csv_name, theo):
 	theo = int(theo)
 	for i in range(20):
 		# print csv_name
-		f = open('results/SA_50_25/result_anneal%s%s.csv' % (csv_name, i),'r')
+		f = open('results/result_anneal%s%s.csv' % (csv_name, i),'r')
 		data = csv.reader(f, delimiter=',')
 		iterations = [0]*theo
 		prev_iteration = 0
+		row_count = 0
 		for row in data:
-			if row[0] == 'Score Iteration':
+			if row[0] == 'Score Iteration' and row_count > 80:
 				score = -int(row[1])
 				iteration = int(row[2])
 				iterations[score] = iteration - prev_iteration
 				prev_iteration = iteration
-
+			row_count += 1
 
 		result_array.append(iterations)
 	return result_array	
@@ -92,7 +93,7 @@ def extract_results(csv_name, theo):
 	theo = int(theo)
 	for i in range(20):
 		# print csv_name
-		f = open('results/SA_50_25/result_anneal%s%s.csv' % (csv_name, i),'r')
+		f = open('results/result_anneal%s%s.csv' % (csv_name, i),'r')
 		data = csv.reader(f, delimiter=',')
 		
 		high_score = 0

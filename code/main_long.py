@@ -26,7 +26,7 @@ def main():
 	# folder_iter.write_csv(result_array, 'randomsampling_overview%s_%s' %(length, h_concentration))
 	protein_array = []
 	# # csv_name = 
-	f = open('results/final/randomsampling_overview50_25.csv','r')
+	f = open('results/final/randomsampling_overview50_30.csv','r')
 	data = csv.reader(f, delimiter=',')
 
 	for row in data:
@@ -35,7 +35,7 @@ def main():
 
 	print protein_array
 
-	for j in range((len(protein_array)/2) + 1, len(protein_array)):
+	for j in range(len(protein_array)/2):
 		protein_object = functions.protein_place(protein_array[j])
 		print 'protein_object made'
 		for i in range(14):
