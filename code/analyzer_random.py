@@ -3,7 +3,7 @@ import csv, string, sys, copy
 
 def main():
 
-	protein_array = extract_protein('randomsampling_overview50_20')
+	protein_array = extract_protein('randomsampling_overview50_30')
 	print protein_array
 	h_count = 0
 	protein_len = len(protein_array[0][0])
@@ -89,7 +89,7 @@ def protein_analyze(protein):
 def extract_protein(csv_name):
 
 	# f = open(csv_name, 'r')
-	f = open('results/final/%s.csv' % csv_name,'r')
+	f = open('results/%s.csv' % csv_name,'r')
 	data = csv.reader(f, delimiter=',')
 	protein_array = []
 	for row in data:

@@ -2,7 +2,7 @@ import csv
 
 
 def main():
-	extract_proteins('analyze2_50_20_500')
+	extract_proteins('analyze2_50_30_500')
 
 def extract_proteins(csv_name):
 	protein_array = []
