@@ -35,7 +35,7 @@ def main():
 
 	print protein_array
 
-	for j in range(90, 100):
+	for j in range(72, 74):
 		protein_object = functions.protein_place(protein_array[j])
 		print 'protein_object made'
 		for i in range(20):
