@@ -4,17 +4,15 @@ import csv
 
 
 def main():
-	extract_proteins('analyze_16_8')
+	extract_proteins('ana_14_9_400')
 
 def extract_proteins(csv_name):
 	protein_array = []
 	high_array = []
-	ratio_array = []
-	f = open('results/%s.csv' % (csv_name),'r')
+	f = open('resultskort/ANALYSIS/%s.csv' % (csv_name),'r')
 	data = csv.reader(f, delimiter=',')
-
 	for row in data:
-		if row[0] != 'protein':
+		if 'protein' not in row[0]:
 			protein_array.append(row[0])
 			high_array.append(row[2])
 	result_array = []
@@ -25,34 +23,31 @@ def extract_proteins(csv_name):
 		percentage = extract_percentage(result,high_array[i])
 		result_array += result
 		percentage_array.append([protein_array[i]] + percentage)
-	write_csv(result_array, 'SA_protein_overview/SA_score%s' %(csv_name))
+	write_csv(result_array, 'ANALYSIS/SA_scorekort%s' %(csv_name))
 	print percentage_array
-	write_csv(percentage_array, 'SA_protein_overview/SA_percentage%s' %(csv_name))
-
-
-
+	write_csv(percentage_array, 'ANALYSIS/SA_percentagekort%s' %(csv_name))
 
 def extract_percentage(result, high_score):
-	high = - int(high_score)
+	high = int(high_score)
 	percentage = 0
 	mean = 0
-	print result
+	# print result
 	for row in result:
-		if row[2] == high:
+		if row[2] <= high:
 			percentage +=1
 			mean += row[3]
 	if percentage != 0:
 		mean = mean/percentage
 	
-	percentage = int((percentage/float(20))*100)
+	percentage = int((percentage/float(14))*100)
 	return [percentage, mean]
 
 	
 
 def extract_results(csv_name):
 	result_array = []
-	for i in range(20):
-		f = open('results/result_anneal%s%s.csv' % (csv_name, i),'r')
+	for i in range(14):
+		f = open('resultskort/result_anneal2%s%s.csv' % (csv_name, i),'r')
 		data = csv.reader(f, delimiter=',')
 		
 		high_score = 0
@@ -69,7 +64,7 @@ def extract_results(csv_name):
 	return result_array
 
 def write_csv(in_array, csv_name):
-	f = open('results/%s.csv' % csv_name, 'w')
+	f = open('resultskort/%s.csv' % csv_name, 'w')
 	csv_file = csv.writer(f, delimiter = ',')
 	for row in in_array:
 		csv_file.writerow(row)
