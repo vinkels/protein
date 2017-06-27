@@ -19,7 +19,7 @@ def anneal(protein_object, name, temperature):
 	j = 0
 	# i = 0
 	counter = 0 
-	while j < 20:
+	while j < 15:
 		start_an = timer() - start
 		# functions.Visualizer2D(cur_protein, 'HHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH', cur_score, "test%s+%s" %(i,counter))
 		# i+=1
@@ -30,7 +30,7 @@ def anneal(protein_object, name, temperature):
 
 			# make next protein object
 			next_coor = folder_iter.folder_protein(cur_coor, random.randint(2,len(cur_protein) - 1), random.randint(1,3))
-			next_protein = folder_iter.update_objects(protein_object, next_coor)
+			next_protein = folder_iter.update_objects(cur_protein, next_coor)
 			next_grid = functions.protein_visual(next_protein)
 			next_score = functions.score(next_protein, next_grid)
 

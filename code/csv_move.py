@@ -9,7 +9,7 @@ def make_array():
 	protein_array = []
 	csv_name = 'analyze2_50_20_500'
 	f = open('results/final/%s.csv' % (csv_name),'r')
-	data = csv.reader(f, delimiter=';')
+	data = csv.reader(f, delimiter=',')
 
 
 
@@ -26,15 +26,16 @@ def make_array():
 		for protein in protein_array:
 			# print protein
 			try: 
-				f = open('results/SA_50_20_400/result_anneal%s%s.csv' % (protein, i),'r')
+				f = open('results/SA_50_20_15/result_anneal%s%s.csv' % (protein, i),'r')
 			except IOError:
 				try:
-					f = open('results/SA_50_20_400/result_anneal2%s%s.csv' % (protein, i),'r')
+					f = open('results/SA_50_20_15/result_anneal2%s%s.csv' % (protein, i),'r')
 				except IOError:
 					protein_ar.append(protein)
 					print protein
 					print 'missing ', protein, i
 
+	print protein_ar
 	return protein_ar
 
 
