@@ -4,12 +4,12 @@ import csv
 
 
 def main():
-	extract_proteins('ana_14_9_400')
+	extract_proteins('SA_scoreanalyze_16_8_clean')
 
 def extract_proteins(csv_name):
 	protein_array = []
 	high_array = []
-	f = open('resultskort/ANALYSIS/%s.csv' % (csv_name),'r')
+	f = open('results/SA_protein_overview/%s.csv' % (csv_name),'r')
 	data = csv.reader(f, delimiter=',')
 	for row in data:
 		if 'protein' not in row[0]:
