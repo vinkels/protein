@@ -6,6 +6,7 @@ import csv
 def main():
 	extract_proteins('SA_scoreanalyze_16_8_clean')
 
+
 def extract_proteins(csv_name):
 	protein_array = []
 	high_array = []
@@ -56,7 +57,7 @@ def extract_results(csv_name):
 			if row[0] == 'Score Iteration':
 				score = int(row[1])
 				if score < high_score:
-					high_score = score
+					high_score = copy.copy(score)
 					iteration = int(row[2])
 
 

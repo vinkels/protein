@@ -38,12 +38,12 @@ def main():
 	for j in range(len(protein_array)):
 		protein_object = functions.protein_place(protein_array[j])
 		print 'protein_object made'
-		for i in range(20):
-			new_protein = simulated_annealing.anneal(protein_object, 'test6%s' %(130+i), 1)
+		for i in range(14):
+			new_protein = simulated_annealing.anneal(protein_object, 'test7%s' %(130+i), 1)
 			# print 'new_protein made'
-			folder_iter.write_csv(new_protein[2], 'SA_50_20_400/result_anneal%s' %(protein_array[j]+str(i)))
+			folder_iter.write_csv(new_protein[2], 'SA_50_20_15/result_anneal%s' %(protein_array[j]+str(i)))
 			# print 'written to csv'
-			functions.Visualizer2D(new_protein[1], protein_array[j], new_protein[0], 'annealjeej%s' %(protein_array[j]+str(i)))
+			functions.Visualizer2D(new_protein[1], protein_array[j], new_protein[0], 'anneal7%s' %(protein_array[j]+str(i)))
 			print 'SA succes'
 
 if __name__ == '__main__':
